@@ -16,9 +16,9 @@
   </a>
 </p>
 
-# PDF Creator POC
+# Sanction's PDF Server POC
 
-This repository contains the source code for a **Credit Header Report** application. The project utilizes a combination of **Node.js**, **EJS templates**, and **custom styles** to generate a dynamic and visually appealing report interface.
+This repository contains the old source code from **Sanction PDF's** application. The project utilizes a combination of **Node.js**, **EJS templates**, and **custom styles** to generate a dynamic and visually appealing report interface.
 
 ---
 
@@ -56,7 +56,7 @@ This repository contains the source code for a **Credit Header Report** applicat
 
    ```bash
    git clone https://github.com/BarcodeBimbo/Sanction-PDF.git
-   cd credit-header-report
+   cd Sanction-PDF
    ```
 
 2. Install dependencies:
