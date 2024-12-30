@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Header Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+      }
+      .container2 {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #000000;
+        border: 2px solid #a68a56;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(166, 138, 86, 0.3);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .header h1 {
+        font-size: 48px;
+        margin: 0;
+        text-shadow: 0 0 10px rgba(166, 138, 86, 0.8);
+      }
+      .header p {
+        font-size: 24px;
+        margin: 5px 0;
+      }
+
+      .header::before {
+        left: 0;
+      }
+      .header::after {
+        right: 0;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+      }
+      .card {
+        border-color: #777777;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        font-size: 28px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #a68a56;
+        text-align: center;
+      }
+      .card p {
+        margin: 5px 0;
+      }
+      .card ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .card ul li {
+        margin-bottom: 5px;
+      }
+      .card ul.columns {
+        column-count: 2;
+        column-gap: 20px;
+      }
+      .email-link {
+        color: #a68a56;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .email-link:hover {
+        color: #d2b48c;
+      }
+
+      .detail-1::before {
+        content: "";
+        display: inline-block;
+        width: 134.3%;
+        height: 1px;
+        background-color: #888;
+        vertical-align: middle;
+        margin: 0 10px;
+      }
+
+      .detail-3::before {
+        content: "";
+        display: inline-block;
+        width: 94%;
+        height: 1px;
+        background-color: #888;
+        vertical-align: middle;
+        margin: 0 -200px;
+      }
+
+      .detail-2::after {
+        content: "";
+        display: inline-block;
+        width: 90%;
+        height: 1px;
+        background-color: #888;
+        vertical-align: middle;
+        margin: 0 10px;
+      }
+      @media screen and (max-width: 768px) {
+        .header h1 {
+          font-size: 25px;
+        }
+        .header p {
+          font-size: 18px;
+        }
+        .card h2 {
+          font-size: 20px;
+        }
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0px;
+        position: relative;
+      }
+      .side-section {
+        flex: 3;
+        text-align: center;
+      }
+      .side-section img {
+        width: 100%;
+        height: auto;
+      }
+      .middle-section {
+        flex: 1;
+        position: relative;
+        overflow: visible;
+      }
+      .middle-section .logo {
+        width: 116%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0px);
+        z-index: 10;
+      }
+      .content-below {
+        text-align: center;
+        padding: 50px 0;
+        margin-top: -50px;
+        background: #fff;
+        border-top: 5px solid #ccc;
+      }
+      .spacer {
+        padding: 40px;
+      }
+
+      .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #000;
+        padding: 5px;
+      }
+
+      .weetimg {
+        width: 50px;
+        height: auto;
+      }
+
+      .middle-container {
+        position: relative;
+        flex-basis: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+      }
+
+      .new-image {
+        width: 135%;
+        height: auto;
+      }
+
+      .sections-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+      }
+
+      .section {
+        text-align: center;
+        padding: 0 5px;
+      }
+
+      .footer-text {
+        margin: 5px 0;
+      }
+
+      .bankruptcy-text {
+        font-size: 14px;
+      }
+
+      .name-container,
+      .number-container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #a68a56;
+        font-size: 14px;
+        font-family: "Old Standard TT", serif;
+      }
+
+      .name-container {
+        left: 0px;
+      }
+
+      .number-container {
+        right: 0px;
+      }
+
+      .Liens-text {
+        position: relative;
+        right: 20px;
+      }
+
+      .age-text {
+        position: relative;
+        right: -10px;
+      }
+
+      .bankruptcy-text {
+        position: relative;
+        left: 40px;
+      }
+
+      /*---------------------------*/
+      .Liens-value {
+        position: relative;
+        right: 20px;
+      }
+
+      .age-value {
+        position: relative;
+        right: -20px;
+        bottom: -5px;
+        color: #a68a56;
+        font-size: 20px;
+        font-family: "Old Standard TT", serif;
+      }
+
+      .bankruptcy-value {
+        position: relative;
+        left: 40px;
+      }
+      .name-text {
+        position: relative;
+        font-size: 25px;
+        left: -80px;
+        text-align: center;
+      }
+      .number-text {
+        position: relative;
+        font-size: 30px;
+        left: 0px;
+        text-align: center;
+      }
+
+      /*---------------------*/
+      .discord-link {
+        position: absolute;
+        top: 40px;
+        left: 180px;
+        color: #a68a56;
+        font-family: "Old Standard TT", serif;
+        font-size: 25px;
+        text-decoration: none;
+        z-index: 20;
+      }
+
+      .discord-link-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 20;
+      }
+
+      .discord-link:hover {
+        text-decoration: underline;
+      }
+
+      .date-time {
+        position: absolute;
+        top: 40px;
+        left: 180px;
+        color: #a68a56;
+        font-family: "Old Standard TT", serif;
+        font-size: 25px;
+        text-decoration: none;
+        z-index: 20;
+      }
+
+      .date-container {
+        position: absolute;
+        top: 10px;
+        right: 500px;
+        z-index: 20;
+      }
+
+      .date-text {
+        position: absolute;
+        top: 40px;
+        left: 180px;
+        color: #a68a56;
+        font-family: "Old Standard TT", serif;
+        font-size: 20px;
+        text-decoration: none;
+        z-index: 20;
+      }
+      .container2 {
+          Margin-top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container2">
+      <div class="container">
+        <div class="detail-2 detail-1 side-section left-section">
+          <img
+            src="https://tlo.sh/imgs/pdf-top-left.png"
+            alt="Image Banner 1"
+          />
+          <div class="discord-link-container">
+            <a
+              href="https://discord.gg/tloxp"
+              target="_blank"
+              class="discord-link"
+              >discord.gg/tloxp</a
+            >
+          </div>
+        </div>
+        <div class="middle-section">
+          <img
+            src="https://tlo.sh/imgs/tlo-t.png"
+            class="logo"
+            alt="Sanction Logo Placeholder v2"
+          />
+        </div>
+        <div class="detail-2 detail-3 side-section right-section">
+          <img
+            src="https://tlo.sh/imgs/pdf-top-right.png"
+            alt="Image Banner 2"
+          />
+          <div class="date-container">
+            <span class="date-text" id="dateText"><%= data.date%></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="card">
+          <h2>Emails</br>____________________</h2></br>
+          <ul>
+            <% data.emails.forEach(function(email) { %>
+            <li>
+              <% if (email.includes('@')) { %>
+              <a href="mailto:<%= email %>" class="email-link"><%= email %></a>
+              <% } else { %> <%= email %> <% } %>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="spacer"></div>
+          <h2>Comprehensive Report</br>____________________</h2></br>
+          <p>Name: <%= data.driverLicense.type %></p>
+          <p>Age: <%= data.driverLicense.name %></p>
+          <p>Address: <%= data.driverLicense.idNumber %></p>
+          <p>Phone: <%= data.driverLicense.state %></p>
+          <p>Social Security: <%= data.driverLicense.issued %></p>
+        </div>
+
+        <div class="card">
+          <h2>Social Security</br>____________________</h2></br>
+          <p>Name: <%= data.socialSecurity.name %></p>
+          <p>SSN: <%= data.socialSecurity.ssn %></p>
+          <p>SSN State: <%= data.socialSecurity.ssnState %></p>
+          <p>SSN Years: <%= data.socialSecurity.ssnYears %></p>
+          <p>DOB: <%= data.socialSecurity.dob %></p>
+        </div>
+
+        <div class="card">
+          <h2>Addresses</br>____________________</h2></br>
+          <ul>
+            <% data.addresses.forEach(function(address) { %>
+            <li><%= address %></li>
+            <% }); %>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Other Numbers</br>____________________</h2></br>
+          <ul class="columns">
+            <% data.otherNumbers.forEach(function(phoneNumber) { %>
+            <li><%= phoneNumber%></li>
+            <% }); %>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Relatives</br>____________________</h2></br>
+          <ul>
+            <% data.relatives.forEach(function(relative) { %>
+            <li><%= relative %></li>
+            <% }); %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-container">
+        <img
+          class="weetimg"
+          src="https://tlo.sh/imgs/pdf-bottom-left.png"
+          alt="Wheat Image 2"
+        />
+
+        <div class="middle-container">
+          <img
+            src="https://i.postimg.cc/63tRHbQz/aatbio-com-image-export-May-4-2024.png"
+            alt="New Image"
+            class="new-image"
+          />
+          <div class="sections-container">
+            <div class="section">
+              <p class="footer-text Liens-text">Liens</p>
+              <p class="footer-text Liens-value"><%= data.liens %></p>
+            </div>
+            <div class="section">
+              <p class="footer-text age-value"><%= data.age %></p>
+            </div>
+            <div class="section">
+              <p class="footer-text bankruptcy-text">Bankruptcy</p>
+              <p class="footer-text bankruptcy-value"><%= data.bankruptcy %></p>
+            </div>
+          </div>
+          <div class="name-container">
+            <p class="name-text"><%= data.socialSecurity.name%></p>
+          </div>
+          <div class="number-container">
+            <p class="number-text"><%= data.socialSecurity.ssn%></p>
+          </div>
+        </div>
+
+        <img
+          class="weetimg"
+          src="https://tlo.sh/imgs/pdf-bottom-right.png"
+          alt="Wheat Image 1"
+        />
+      </div>
+    </div>
+    <script>
+      function updateDateTime() {
+        var now = new Date();
+        var dateString = now.toLocaleDateString("en-US", {
+          month: "2-digit",
+          day: "2-digit",
+          year: "numeric",
+        });
+        document.getElementById("dateText").textContent = dateString;
+      }
+
+      // Update date and time every second
+      setInterval(updateDateTime, 1000);
+    </script>
+  </body>
+</html>

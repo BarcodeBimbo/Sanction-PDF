@@ -1,0 +1,22 @@
+{
+  "name": "pdf_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "nextjs": "^0.0.3",
+    "path": "^0.12.7",
+    "pm2": "^5.3.1",
+    "puppeteer": "^22.15.0",
+    "puppeteer-core": "^22.8.0"
+  },
+  "description": ""
+}
