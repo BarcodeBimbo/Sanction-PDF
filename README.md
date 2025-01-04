@@ -5,9 +5,6 @@
   <a href="https://discord.gg/tloxp">
     <img src="https://ptb.discord.com/api/guilds/1258060134060654632/widget.png?style=shield" alt="Discord Server">
   </a>
-  <a href="https://www.python.org/downloads/">
-    <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/Red-Discordbot">
-  </a>
   <a href="https://github.com/BarcodeBimbo/Sanction-PDF">
     <img src="https://img.shields.io/badge/html-python-red.svg" alt="">
   </a>
@@ -84,6 +81,55 @@ This repository contains the old source code from **Sanction PDF's** application
 - **Dynamic Rendering:** Data variables (e.g., `data.socialSecurity`, `data.addresses`) populate various sections of the report dynamically.
 - **Real-Time Clock:** JavaScript updates the date in the header every second.
 
+Python Example
+```python
+import requests
+
+data = {
+    "emails": [
+        
+    ],
+    "driverLicense": {
+        "type": "",
+        "name": "",
+        "idNumber": "",
+        "state": "",
+        "issued": "",
+        "expires": ""
+    },
+    "socialSecurity": {
+        "name": "",
+        "ssn": "",
+        "ssnState": "",
+        "ssnYears": "",
+        "dob": ""
+    },
+    "addresses": [
+
+    ],
+    "otherNumbers": [
+        {"phoneNumber": "", "carrier": ""},
+        {"phoneNumber": "", "carrier": ""}
+    ],
+    "relatives": [
+
+    ],
+    "liens": 0,
+    "age": 0,
+    "bankruptcy": 0,
+    "data": "MM/D/YYYY"
+}
+
+# Send the POST request to the server
+response = requests.post('http://localhost:3000/create-pdf', json=data)
+
+# Check the response status code
+if response.ok:
+    filename = response.json()["Filename"]
+    print(f'PDF Was Saved As {filename}')
+else:
+    print(f'PDF ERROR LOG - \nStatus code: {response.status_code}\nResponse: {response.text}')
+```
 ---
 
 ## Customization
